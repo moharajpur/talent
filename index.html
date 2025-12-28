@@ -20,31 +20,41 @@
 
         /* ================= HEADER ================= */
         header {
+            position: relative;
             background-color: #2e7d32;
             color: white;
-            padding: 20px 10px;
-        }
-
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1100px;
-            margin: auto;
-            flex-wrap: wrap;
-        }
-
-        .header-image {
-            width: 110px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            margin: 5px 0;
-        }
-
-        .header-text {
+            padding: 60px 10px 20px 10px;
+            overflow: hidden;
             text-align: center;
-            flex: 1;
+        }
+
+        /* Faces banner */
+        .faces-container {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            gap: 10px;
+            pointer-events: none; /* text stays clickable */
+            z-index: 1;
+        }
+
+        .face {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+        }
+
+        /* Header text above faces */
+        .header-text {
+            position: relative;
+            z-index: 2;
             padding: 0 15px;
         }
 
@@ -91,16 +101,15 @@
 
         /* ================= MOBILE ================= */
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
+            .faces-container {
+                gap: 5px;
             }
-
+            .face {
+                width: 35px;
+                height: 35px;
+            }
             .header-text h1 {
                 font-size: 28px;
-            }
-
-            .header-image {
-                width: 90px;
             }
         }
     </style>
@@ -110,26 +119,50 @@
 
 <!-- ================= HEADER ================= -->
 <header>
-    <div class="header-container">
+    <!-- Faces banner -->
+    <div class="faces-container">
+        <!-- Repeat 30 images -->
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+        <img src="mazder.png" alt="Face" class="face">
+    </div>
 
-        <!-- Left Image -->
-        <img src="mazder.png" alt="মহারাজপুর গ্রাম" class="header-image">
-
-        <!-- Center Text -->
-        <div class="header-text">
-            <h1>এই আমাদের গ্রাম</h1>
-            <p>প্রকৃতি, শিক্ষা ও সহজ সরল জীবনের এক অনন্য উদাহরণ</p>
-        </div>
-
-        <!-- Right Image -->
-        <img src="mazder.png" alt="ধানক্ষেত ও নদী" class="header-image">
-
+    <!-- Header text -->
+    <div class="header-text">
+        <h1>এই আমাদের গ্রাম</h1>
+        <p>প্রকৃতি, শিক্ষা ও সহজ সরল জীবনের এক অনন্য উদাহরণ</p>
     </div>
 </header>
 
 <!-- ================= MAIN CONTENT ================= -->
 <section>
-
     <div class="box">
         <h2>পরিচয়</h2>
         <p>
@@ -141,7 +174,6 @@
             “<strong>পুর</strong>” শব্দটি সংস্কৃত <strong>পুর</strong> বা <strong>পুরী</strong> থেকে এসেছে,
             যার অর্থ মানুষের বসবাসের স্থান—নগর কিংবা গ্রাম।
             তাই <strong>মহারাজপুর</strong> মানে মহান রাজার বসতি।
-            নামটার মতোই এই গ্রামটাও যেন এক সময়ে ছিল সমৃদ্ধ আর মর্যাদায় ভরা।
         </p>
 
         <p>
@@ -183,7 +215,6 @@
             এটি স্মৃতি, শিক্ষা, সংগ্রাম ও মানবিকতার এক জীবন্ত গল্প।
         </p>
     </div>
-
 </section>
 
 <!-- ================= FOOTER ================= -->
