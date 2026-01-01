@@ -29,7 +29,6 @@
             justify-content: center;
             gap: 20px;
             text-align: center;
-            flex-wrap: wrap;
         }
 
         .header-img {
@@ -77,6 +76,7 @@
 
         .kritoggata-serial {
             display: flex;
+            flex-wrap: wrap;
             gap: 10px;
             justify-content: flex-start;
         }
@@ -107,7 +107,7 @@
         .bio-container-right {
             position: fixed;
             top: 220px;
-            width: 400px;
+            width: 400px; /* Increased width */
             max-height: 70vh;
             overflow-y: auto;
             background-color: #f0f0f0;
@@ -138,12 +138,39 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #fff;
-            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            width: 80px; /* You can adjust the size as needed */
+            height: 80px; /* Keep the image square */
+            border-radius: 50%; /* Makes the image round */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            border: 3px solid #fff; /* Optional: adds a white border around the image */
+            box-shadow: 0 0 5px rgba(0,0,0,0.3); /* Optional: adds a small shadow for effect */
+        }
+
+        /* ================= MOBILE ================= */
+        @media (max-width: 768px) {
+            /* Hide side bios on mobile */
+            .bio-container-left,
+            .bio-container-right { display: none; }
+
+            /* Show bio at the bottom of the screen */
+            .bio-container-mobile {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                background-color: #f0f0f0;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                z-index: 1000;
+                display: none; /* Initially hidden */
+            }
+        }
+
+        /* ================= DESKTOP ================= */
+        @media (min-width: 769px) {
+            .bio-container-mobile { display: none; } /* Hide mobile bio on desktop */
         }
     </style>
 </head>
@@ -179,7 +206,7 @@
             শরতে ধানক্ষেত সোনালী,
             হেমন্তে হালকা কুয়াশার নরম আলোয় শান্তিপূর্ণ,
             আর বসন্তে ফুলের রঙ ও বাতাসে মধুর সুবাস—
-            সব মিলিয়ে এক স্নিগ্ধ প্রকৃতি। 
+            সব মিলিয়ে এক স্নিগ্ধ প্রকৃতি। এক স্নিগ্ধ প্রকৃতি।
         </p>
     </div>
 
@@ -192,9 +219,93 @@
             <img src="BSC.png" alt="BSC" onclick="showBio('BSC', 'right', 'BSC.png')" />
             <img src="PhD.png" alt="PhD" onclick="showBio('PhD', 'left', 'PhD.png')" />
             <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="Pri.png" alt="Pri" onclick="showBio('Pri', 'left', 'Pri.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="BSC.png" alt="BSC" onclick="showBio('BSC', 'right', 'BSC.png')" />
+            <img src="PhD.png" alt="PhD" onclick="showBio('PhD', 'left', 'PhD.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="Pri.png" alt="Pri" onclick="showBio('Pri', 'left', 'Pri.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="BSC.png" alt="BSC" onclick="showBio('BSC', 'right', 'BSC.png')" />
+            <img src="PhD.png" alt="PhD" onclick="showBio('PhD', 'left', 'PhD.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="Pri.png" alt="Pri" onclick="showBio('Pri', 'left', 'Pri.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="BSC.png" alt="BSC" onclick="showBio('BSC', 'right', 'BSC.png')" />
+            <img src="PhD.png" alt="PhD" onclick="showBio('PhD', 'left', 'PhD.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="Pri.png" alt="Pri" onclick="showBio('Pri', 'left', 'Pri.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="BSC.png" alt="BSC" onclick="showBio('BSC', 'right', 'BSC.png')" />
+            <img src="PhD.png" alt="PhD" onclick="showBio('PhD', 'left', 'PhD.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="Pri.png" alt="Pri" onclick="showBio('Pri', 'left', 'Pri.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="BSC.png" alt="BSC" onclick="showBio('BSC', 'right', 'BSC.png')" />
+            <img src="PhD.png" alt="PhD" onclick="showBio('PhD', 'left', 'PhD.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="Pri.png" alt="Pri" onclick="showBio('Pri', 'left', 'Pri.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="BSC.png" alt="BSC" onclick="showBio('BSC', 'right', 'BSC.png')" />
+            <img src="PhD.png" alt="PhD" onclick="showBio('PhD', 'left', 'PhD.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="Pri.png" alt="Pri" onclick="showBio('Pri', 'left', 'Pri.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="BSC.png" alt="BSC" onclick="showBio('BSC', 'right', 'BSC.png')" />
+            <img src="PhD.png" alt="PhD" onclick="showBio('PhD', 'left', 'PhD.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="Pri.png" alt="Pri" onclick="showBio('Pri', 'left', 'Pri.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="BSC.png" alt="BSC" onclick="showBio('BSC', 'right', 'BSC.png')" />
+            <img src="PhD.png" alt="PhD" onclick="showBio('PhD', 'left', 'PhD.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="BSC.png" alt="BSC" onclick="showBio('BSC', 'right', 'BSC.png')" />
+            <img src="PhD.png" alt="PhD" onclick="showBio('PhD', 'left', 'PhD.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="Pri.png" alt="Pri" onclick="showBio('Pri', 'left', 'Pri.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="BSC.png" alt="BSC" onclick="showBio('BSC', 'right', 'BSC.png')" />
+            <img src="PhD.png" alt="PhD" onclick="showBio('PhD', 'left', 'PhD.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="Pri.png" alt="Pri" onclick="showBio('Pri', 'left', 'Pri.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="BSC.png" alt="BSC" onclick="showBio('BSC', 'right', 'BSC.png')" />
+            <img src="PhD.png" alt="PhD" onclick="showBio('PhD', 'left', 'PhD.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="Pri.png" alt="Pri" onclick="showBio('Pri', 'left', 'Pri.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="BSC.png" alt="BSC" onclick="showBio('BSC', 'right', 'BSC.png')" />
+            <img src="PhD.png" alt="PhD" onclick="showBio('PhD', 'left', 'PhD.png')" />
+            <img src="last.png" alt="Last" onclick="showBio('Last', 'right', 'last.png')" />
+            <img src="Pri.png" alt="Pri" onclick="showBio('Pri', 'left', 'Pri.png')" />
+            <img src="SSC.png" alt="SSC" onclick="showBio('SSC', 'right', 'SSC.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
+            <img src="HSC2.png" alt="HSC2" onclick="showBio('HSC2', 'left', 'HSC2.png')" />
         </div>
     </div>
 </section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    © ২০২৫ | মহারাজপুর গ্রাম | ভালোবাসায় তৈরি
+</footer>
 
 <!-- ================= BIO CONTAINERS ================= -->
 <div id="bio-left" class="bio-container-left">
@@ -213,13 +324,18 @@
     <ul id="achievements-list-right"></ul>
 </div>
 
-<!-- ================= FOOTER ================= -->
-<footer>
-    © ২০২৫ | মহারাজপুর গ্রাম | ভালোবাসায় তৈরি
-</footer>
+<!-- Mobile Bio -->
+<div id="bio-mobile" class="bio-container-mobile">
+    <img id="bio-image-mobile" src="" alt="Person Image" class="bio-image" />
+    <h2></h2>
+    <h3 id="bio-name-mobile"></h3>
+    <p id="bio-description-mobile"></p>
+    <ul id="achievements-list-mobile"></ul>
+</div>
 
+<!-- ================= JS ================= -->
 <script>
-// Bio Data with corresponding image path for each person
+// Bio Data
 const bioData = {
     'Pri': {
         name: 'মো: মাজদার রহমান',
@@ -231,10 +347,28 @@ const bioData = {
         description: 'এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ। ঋতুর সঙ্গে গ্রামের শোভা ও সাজ বদলায়। গ্রীষ্মে মাঠ ঝলমল, বর্ষায় চারপাশ সবুজ আর পানি থৈ থৈ, শরতে ধানক্ষেত সোনালী, হেমন্তে হালকা কুয়াশার নরম আলোয় শান্তিপূর্ণ, আর বসন্তে ফুলের রঙ ও বাতাসে মধুর সুবাস—সব মিলিয়ে এক স্নিগ্ধ প্রকৃতি।',
         achievements: ['এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ।', 'এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ।']
     },
-    // ... more bioData entries
+    'HSC2': {
+        name: 'মো: মাজদার রহমান',
+        description: 'এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ। ঋতুর সঙ্গে গ্রামের শোভা ও সাজ বদলায়। গ্রীষ্মে মাঠ ঝলমল, বর্ষায় চারপাশ সবুজ আর পানি থৈ থৈ, শরতে ধানক্ষেত সোনালী, হেমন্তে হালকা কুয়াশার নরম আলোয় শান্তিপূর্ণ, আর বসন্তে ফুলের রঙ ও বাতাসে মধুর সুবাস—সব মিলিয়ে এক স্নিগ্ধ প্রকৃতি।',
+        achievements: ['এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ।', 'এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ।']
+    },
+    'BSC': {
+        name: 'মো: মাজদার রহমান',
+        description: 'এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ। ঋতুর সঙ্গে গ্রামের শোভা ও সাজ বদলায়। গ্রীষ্মে মাঠ ঝলমল, বর্ষায় চারপাশ সবুজ আর পানি থৈ থৈ, শরতে ধানক্ষেত সোনালী, হেমন্তে হালকা কুয়াশার নরম আলোয় শান্তিপূর্ণ, আর বসন্তে ফুলের রঙ ও বাতাসে মধুর সুবাস—সব মিলিয়ে এক স্নিগ্ধ প্রকৃতি।',
+        achievements: ['এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ।', 'এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ।']
+    },
+    'PhD': {
+        name: 'মো: মাজদার রহমান',
+        description: 'এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ। ঋতুর সঙ্গে গ্রামের শোভা ও সাজ বদলায়। গ্রীষ্মে মাঠ ঝলমল, বর্ষায় চারপাশ সবুজ আর পানি থৈ থৈ, শরতে ধানক্ষেত সোনালী, হেমন্তে হালকা কুয়াশার নরম আলোয় শান্তিপূর্ণ, আর বসন্তে ফুলের রঙ ও বাতাসে মধুর সুবাস—সব মিলিয়ে এক স্নিগ্ধ প্রকৃতি।',
+        achievements: ['এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ।', 'এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ।']
+    },
+    'Last': {
+        name: 'মো: মাজদার রহমান',
+        description: 'এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ। ঋতুর সঙ্গে গ্রামের শোভা ও সাজ বদলায়। গ্রীষ্মে মাঠ ঝলমল, বর্ষায় চারপাশ সবুজ আর পানি থৈ থৈ, শরতে ধানক্ষেত সোনালী, হেমন্তে হালকা কুয়াশার নরম আলোয় শান্তিপূর্ণ, আর বসন্তে ফুলের রঙ ও বাতাসে মধুর সুবাস—সব মিলিয়ে এক স্নিগ্ধ প্রকৃতি।',
+        achievements: ['এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ।', 'এখানকার মাঠ-ঘাট, নদী-নালা, খাল-বিল, হাট-বাজার, সরু আকা-বাকা মেটো পথ, সবুজ ধানক্ষেত— এ এক অনন্য গ্রামের ছাপ।']
+    }
 };
 
-// Show bio on left or right with the image
 function showBio(person, side = 'left', imageSrc) {
     const bio = bioData[person];
     const nameEl = side === 'left' ? 'bio-name-left' : 'bio-name-right';
@@ -256,6 +390,35 @@ function showBio(person, side = 'left', imageSrc) {
 
     document.getElementById(imageEl).src = imageSrc; // Set the image dynamically
     document.getElementById(containerEl).style.display = 'block';
+
+    // Hide mobile bio on desktop view
+    if (window.innerWidth > 768) {
+        const mobileBio = document.getElementById('bio-mobile');
+        mobileBio.style.display = 'none'; // Hide mobile bio on desktop
+    }
+
+    // Mobile bio: Show only on smaller screens
+    const mobileBio = document.getElementById('bio-mobile');
+    const mobileImageEl = 'bio-image-mobile';
+    const mobileNameEl = 'bio-name-mobile';
+    const mobileDescEl = 'bio-description-mobile';
+    const mobileListEl = 'achievements-list-mobile';
+
+    document.getElementById(mobileNameEl).textContent = bio.name;
+    document.getElementById(mobileDescEl).textContent = bio.description;
+
+    const mobileAchievementsList = document.getElementById(mobileListEl);
+    mobileAchievementsList.innerHTML = '';
+    bio.achievements.forEach(a => {
+        const li = document.createElement('li');
+        li.textContent = a;
+        mobileAchievementsList.appendChild(li);
+    });
+
+    document.getElementById(mobileImageEl).src = imageSrc;
+    if (window.innerWidth <= 768) { // Show mobile bio only on mobile view
+        mobileBio.style.display = 'block'; // Show the bio at the bottom
+    }
 }
 </script>
 
