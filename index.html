@@ -147,26 +147,27 @@
         }
 
         /* ================= MOBILE ================= */
-        @media (max-width: 768px) {
-            /* Hide side bios on mobile */
-            .bio-container-left,
-            .bio-container-right { display: none; }
+	@media (max-width: 768px) {
+	    header { flex-direction: column; }
+	    .header-img { width: 60px; height: 60px; }
+	    .kritoggata-serial img { width: 60px; height: 60px; }
 
-            /* Show bio at the bottom of the screen */
-            .bio-container-mobile {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                width: 100%;
-                background-color: #f0f0f0;
-                padding: 15px;
-                border-radius: 10px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                z-index: 1000;
-                display: none; /* Initially hidden */
-            }
-        }
+	    /* Hide side bios on mobile */
+	    .bio-container-left,
+	    .bio-container-right { display: none; }
+
+	    /* Mobile bio at the end of page */
+	    .bio-container-mobile {
+		display: none; /* initially hidden, shown via JS */
+		width: 100%;
+		background-color: #f0f0f0;
+		padding: 15px;
+		margin-top: 20px;
+		border-radius: 10px;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	    }
+	}
+
 
         /* ================= DESKTOP ================= */
         @media (min-width: 769px) {
@@ -308,9 +309,9 @@
 </footer>
 
 <!-- ================= BIO CONTAINERS ================= -->
+<!-- Desktop side bios -->
 <div id="bio-left" class="bio-container-left">
     <img id="bio-image-left" src="" alt="Person Image" class="bio-image" />
-    <h2></h2>
     <h3 id="bio-name-left"></h3>
     <p id="bio-description-left"></p>
     <ul id="achievements-list-left"></ul>
@@ -318,20 +319,20 @@
 
 <div id="bio-right" class="bio-container-right">
     <img id="bio-image-right" src="" alt="Person Image" class="bio-image" />
-    <h2></h2>
     <h3 id="bio-name-right"></h3>
     <p id="bio-description-right"></p>
     <ul id="achievements-list-right"></ul>
 </div>
 
-<!-- Mobile Bio -->
-<div id="bio-mobile" class="bio-container-mobile">
-    <img id="bio-image-mobile" src="" alt="Person Image" class="bio-image" />
-    <h2></h2>
-    <h3 id="bio-name-mobile"></h3>
-    <p id="bio-description-mobile"></p>
-    <ul id="achievements-list-mobile"></ul>
-</div>
+<!-- Mobile bio: placed at the end of content -->
+<section>
+    <div id="bio-mobile" class="bio-container-mobile">
+        <img id="bio-image-mobile" src="" alt="Person Image" class="bio-image" />
+        <h3 id="bio-name-mobile"></h3>
+        <p id="bio-description-mobile"></p>
+        <ul id="achievements-list-mobile"></ul>
+    </div>
+</section>
 
 <!-- ================= JS ================= -->
 <script>
@@ -376,26 +377,26 @@ function showBio(person, side = 'left', imageSrc) {
     const isMobile = window.innerWidth <= 768;
 
     if (isMobile) {
-        // Populate mobile bio only
-        const mobileBio = document.getElementById('bio-mobile');
-        document.getElementById('bio-name-mobile').textContent = bio.name;
-        document.getElementById('bio-description-mobile').textContent = bio.description;
+    const mobileBio = document.getElementById('bio-mobile');
+    document.getElementById('bio-name-mobile').textContent = bio.name;
+    document.getElementById('bio-description-mobile').textContent = bio.description;
 
-        const mobileList = document.getElementById('achievements-list-mobile');
-        mobileList.innerHTML = '';
-        bio.achievements.forEach(a => {
-            const li = document.createElement('li');
-            li.textContent = a;
-            mobileList.appendChild(li);
-        });
+    const mobileList = document.getElementById('achievements-list-mobile');
+    mobileList.innerHTML = '';
+    bio.achievements.forEach(a => {
+        const li = document.createElement('li');
+        li.textContent = a;
+        mobileList.appendChild(li);
+    });
 
-        document.getElementById('bio-image-mobile').src = imageSrc;
-        mobileBio.style.display = 'block';
+    document.getElementById('bio-image-mobile').src = imageSrc;
+    mobileBio.style.display = 'block';
 
-        // Hide side bios on mobile
-        document.getElementById('bio-left').style.display = 'none';
-        document.getElementById('bio-right').style.display = 'none';
-    } else {
+    // hide side bios
+    document.getElementById('bio-left').style.display = 'none';
+    document.getElementById('bio-right').style.display = 'none';
+}
+ else {
         // Populate desktop bio
         const containerId = side === 'left' ? 'bio-left' : 'bio-right';
         const nameId = side === 'left' ? 'bio-name-left' : 'bio-name-right';
