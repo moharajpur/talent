@@ -371,55 +371,57 @@ const bioData = {
 
 function showBio(person, side = 'left', imageSrc) {
     const bio = bioData[person];
-    const nameEl = side === 'left' ? 'bio-name-left' : 'bio-name-right';
-    const descEl = side === 'left' ? 'bio-description-left' : 'bio-description-right';
-    const listEl = side === 'left' ? 'achievements-list-left' : 'achievements-list-right';
-    const containerEl = side === 'left' ? 'bio-left' : 'bio-right';
-    const imageEl = side === 'left' ? 'bio-image-left' : 'bio-image-right';
 
-    document.getElementById(nameEl).textContent = bio.name;
-    document.getElementById(descEl).textContent = bio.description;
+    // Check if it's mobile view
+    const isMobile = window.innerWidth <= 768;
 
-    const achievementsList = document.getElementById(listEl);
-    achievementsList.innerHTML = '';
-    bio.achievements.forEach(a => {
-        const li = document.createElement('li');
-        li.textContent = a;
-        achievementsList.appendChild(li);
-    });
-
-    document.getElementById(imageEl).src = imageSrc; // Set the image dynamically
-    document.getElementById(containerEl).style.display = 'block';
-
-    // Hide mobile bio on desktop view
-    if (window.innerWidth > 768) {
+    if (isMobile) {
+        // Populate mobile bio only
         const mobileBio = document.getElementById('bio-mobile');
-        mobileBio.style.display = 'none'; // Hide mobile bio on desktop
-    }
+        document.getElementById('bio-name-mobile').textContent = bio.name;
+        document.getElementById('bio-description-mobile').textContent = bio.description;
 
-    // Mobile bio: Show only on smaller screens
-    const mobileBio = document.getElementById('bio-mobile');
-    const mobileImageEl = 'bio-image-mobile';
-    const mobileNameEl = 'bio-name-mobile';
-    const mobileDescEl = 'bio-description-mobile';
-    const mobileListEl = 'achievements-list-mobile';
+        const mobileList = document.getElementById('achievements-list-mobile');
+        mobileList.innerHTML = '';
+        bio.achievements.forEach(a => {
+            const li = document.createElement('li');
+            li.textContent = a;
+            mobileList.appendChild(li);
+        });
 
-    document.getElementById(mobileNameEl).textContent = bio.name;
-    document.getElementById(mobileDescEl).textContent = bio.description;
+        document.getElementById('bio-image-mobile').src = imageSrc;
+        mobileBio.style.display = 'block';
 
-    const mobileAchievementsList = document.getElementById(mobileListEl);
-    mobileAchievementsList.innerHTML = '';
-    bio.achievements.forEach(a => {
-        const li = document.createElement('li');
-        li.textContent = a;
-        mobileAchievementsList.appendChild(li);
-    });
+        // Hide side bios on mobile
+        document.getElementById('bio-left').style.display = 'none';
+        document.getElementById('bio-right').style.display = 'none';
+    } else {
+        // Populate desktop bio
+        const containerId = side === 'left' ? 'bio-left' : 'bio-right';
+        const nameId = side === 'left' ? 'bio-name-left' : 'bio-name-right';
+        const descId = side === 'left' ? 'bio-description-left' : 'bio-description-right';
+        const listId = side === 'left' ? 'achievements-list-left' : 'achievements-list-right';
+        const imageId = side === 'left' ? 'bio-image-left' : 'bio-image-right';
 
-    document.getElementById(mobileImageEl).src = imageSrc;
-    if (window.innerWidth <= 768) { // Show mobile bio only on mobile view
-        mobileBio.style.display = 'block'; // Show the bio at the bottom
+        document.getElementById(nameId).textContent = bio.name;
+        document.getElementById(descId).textContent = bio.description;
+
+        const list = document.getElementById(listId);
+        list.innerHTML = '';
+        bio.achievements.forEach(a => {
+            const li = document.createElement('li');
+            li.textContent = a;
+            list.appendChild(li);
+        });
+
+        document.getElementById(imageId).src = imageSrc;
+        document.getElementById(containerId).style.display = 'block';
+
+        // Hide mobile bio on desktop
+        document.getElementById('bio-mobile').style.display = 'none';
     }
 }
+
 </script>
 
 </body>
