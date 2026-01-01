@@ -118,8 +118,8 @@
             z-index: 1000;
         }
 
-        .bio-container-left { left: 23px; }
-        .bio-container-right { right: 23px; }
+        .bio-container-left { left: 21px; }
+        .bio-container-right { right: 21px; }
 
         .bio-container-left h3,
         .bio-container-right h3 {
@@ -157,17 +157,20 @@
 	    .bio-container-right { display: none; }
 
 	    /* Mobile bio just before footer */
-	    .bio-container-mobile {
-		display: none; /* initially hidden, shown via JS */
-		width: 100%; /* full width */
-		max-width: 900px; /* same as body */
-		margin: 20px auto; /* center horizontally */
-		background-color: #f0f0f0;
-		padding: 15px;
-		border-radius: 10px;
-		box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-		position: relative; /* inside flow */
-	    }
+	    /* MOBILE BIO: match section width */
+		.bio-container-mobile {
+		    display: none; /* initially hidden */
+		    width: 100%;       /* full width */
+		    max-width: 900px;  /* same as main section */
+		    margin: 20px auto 40px auto; /* center it and give bottom spacing */
+		    background-color: #f0f0f0;
+		    padding: 20px;     /* match section padding */
+		    border-radius: 10px;
+		    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+		    position: relative; /* flow with content */
+		    box-sizing: border-box; /* ensure padding is included in width */
+		}
+
 
 	    /* Image inside bio */
 	    .bio-container-mobile .bio-image {
@@ -322,6 +325,7 @@
 <section>
     <div id="bio-mobile" class="bio-container-mobile">
         <img id="bio-image-mobile" src="" alt="Person Image" class="bio-image" />
+        <h2></h2>
         <h3 id="bio-name-mobile"></h3>
         <p id="bio-description-mobile"></p>
         <ul id="achievements-list-mobile"></ul>
@@ -337,6 +341,7 @@
 <!-- Desktop side bios -->
 <div id="bio-left" class="bio-container-left">
     <img id="bio-image-left" src="" alt="Person Image" class="bio-image" />
+    <h2></h2>
     <h3 id="bio-name-left"></h3>
     <p id="bio-description-left"></p>
     <ul id="achievements-list-left"></ul>
@@ -344,6 +349,7 @@
 
 <div id="bio-right" class="bio-container-right">
     <img id="bio-image-right" src="" alt="Person Image" class="bio-image" />
+    <h2></h2>
     <h3 id="bio-name-right"></h3>
     <p id="bio-description-right"></p>
     <ul id="achievements-list-right"></ul>
